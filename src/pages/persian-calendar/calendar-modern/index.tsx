@@ -1,16 +1,15 @@
 import '@styles/react/libs/modern-date-picker/modern-date-picker.scss';
 
 import { FunctionComponent, useState } from 'react';
-import React from 'react';
 import { Calendar, Day, DayRange, DayValue } from 'react-modern-calendar-datepicker';
 
 const CalendarSg: FunctionComponent = () => {
-  const [day, setDay] = React.useState<DayValue>(null);
-  const [dayRange, setDayRange] = React.useState<DayRange>({
+  const [day, setDay] = useState<DayValue>(null);
+  const [dayRange, setDayRange] = useState<DayRange>({
     from: null,
     to: null,
   });
-  const [days, setDays] = React.useState<Day[]>([]);
+  const [days, setDays] = useState<Day[]>([]);
 
   return (
     <>

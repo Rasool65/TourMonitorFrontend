@@ -1,8 +1,8 @@
 import { usePersianDate } from '@src/hooks/usePersianDate';
-import { FunctionComponent, useState } from 'react';
-import { Calendar } from 'react-feather';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-import DatePicker from 'react-modern-calendar-datepicker';
+import { FunctionComponent, useRef, useState } from 'react';
+import { Calendar as CalendarIcon } from 'react-feather';
+import { Calendar } from 'react-modern-calendar-datepicker';
+
 import {
   Accordion,
   AccordionBody,
@@ -12,9 +12,11 @@ import {
   Button,
   Input,
   InputGroup,
-  InputGroupText,
-  ListGroup,
   ListGroupItem,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
 } from 'reactstrap';
 
 const TourSelection: FunctionComponent = (props) => {
@@ -25,17 +27,48 @@ const TourSelection: FunctionComponent = (props) => {
     open === id ? setOpen('') : setOpen(id);
   };
 
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [showDate, setShowDate] = useState<string>();
+  const dateToggle = () => {
+    setOpenModal(!openModal);
+  };
   return (
     <>
       <div className="p-1">
         <InputGroup>
-          <Button className="calendar-btn">
-            <Calendar size={15} />
+          <Button className="calendar-btn" onClick={dateToggle}>
+            <CalendarIcon size={15} />
           </Button>
-          <Input placeholder="Date" disabled={true} value={dateTime.getCurrentDate()} />
+          <Input placeholder="Select Date" onClick={dateToggle} value={showDate} />
         </InputGroup>
       </div>
-      <DatePicker locale="fa" value={selectedDay} onChange={setSelectedDay} shouldHighlightWeekends />
+      <Modal isOpen={openModal} toggle={dateToggle}>
+        <ModalHeader toggle={dateToggle}> Tour Date Select </ModalHeader>
+        <ModalBody style={{ margin: 'auto' }}>
+          <Calendar
+            calendarClassName="responsive-calendar"
+            locale={'en'}
+            value={selectedDay}
+            onChange={setSelectedDay}
+            shouldHighlightWeekends
+          />
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="primary"
+            onClick={() => {
+              setShowDate(`${selectedDay.year + '/' + selectedDay.month + '/' + selectedDay.day}`);
+              setOpenModal(false);
+            }}
+          >
+            ok
+          </Button>{' '}
+          <Button color="secondary" onClick={dateToggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
+
       <Accordion className="accordion-margin" open={open} toggle={toggle}>
         <AccordionItem>
           <AccordionHeader targetId="1">Favourite Tour</AccordionHeader>

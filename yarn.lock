@@ -5419,7 +5419,7 @@ jake@^10.6.1:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
-jalaali-js@^1.1.0:
+jalaali-js@^1.1.0, jalaali-js@^1.1.5:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/jalaali-js/-/jalaali-js-1.2.3.tgz#365775826d2eece5e6552b96aff384c8773bb406"
   integrity sha512-irl0pXL59Xl0Oz6jyOiJed/NxrVeS6fSx6a8atQOH/LsPWPZwBCxwe5XVEIqjnwt69FRxvnCCwQn5dTMxwbazQ==
@@ -7564,6 +7564,13 @@ react-app-polyfill@^3.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
+
+react-calendar-datetime-picker@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-calendar-datetime-picker/-/react-calendar-datetime-picker-1.6.0.tgz#4864cb51e826e43e2193355bf61c0a9eb378fa52"
+  integrity sha512-tNtrwhABdcoLtOQAWWqKIR7bw0UirhYGw8/JXndUpt07107gWuDFIoP760C1tc/7s4EQOt595SIoL14c8rNTlg==
+  dependencies:
+    jalaali-js "^1.1.5"
 
 react-country-flag@^3.0.2:
   version "3.0.2"
