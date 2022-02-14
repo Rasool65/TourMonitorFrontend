@@ -1,0 +1,31 @@
+@import './base/bootstrap.scss';
+@import './base/bootstrap-extended.scss';
+@import './base/colors.scss';
+@import './base/components.scss';
+
+// Themes
+@import './base/themes/dark-layout.scss';
+@import './base/themes/bordered-layout.scss';
+@import './base/themes/semi-dark-layout.scss';
+@import './base/custom-rtl.scss';
+
+// React Specific
+@import 'react/index';
+
+.hide {
+  display: none;
+}
+
+.main-menu .navbar-header {
+  height: 5.5rem;
+  background-color: #d9d9d9;
+}
+.dark-layout .main-menu .navbar-header {
+  background-color: #141d3e;
+}
+
+.calendar-btn {
+  padding: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+}

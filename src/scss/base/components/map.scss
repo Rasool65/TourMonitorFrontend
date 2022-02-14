@@ -1,0 +1,10 @@
+.map-options-btn {
+  position: absolute;
+  top: 100px;
+  right: 28px;
+  z-index: 9;
+}
+
+.dark-layout .leaflet-container img {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}

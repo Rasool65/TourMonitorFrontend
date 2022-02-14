@@ -1,0 +1,40 @@
+{
+  "short_name": "Tour Monitor",
+  "name": "Solico Tour Monitor",
+  "icons": [
+    {
+      "src": "assets/icons/logo_16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "assets/icons/logo_24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "assets/icons/logo_32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "assets/icons/logo_64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "assets/icons/logo_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/icons/logo_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#faa31a",
+  "background_color": "#ffffff"
+}
