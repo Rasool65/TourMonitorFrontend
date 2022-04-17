@@ -5,9 +5,10 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, AxiosRes
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../configs/apiConfig/apiBaseUrl';
 import { URL_LOGIN } from '../configs/urls';
+import { RequestDataType } from './useHttpRequest';
 import { useTokenAuthentication } from './useTokenAuthentication';
 
-export const useAxios = () => {
+export const useAxios = (dataType: RequestDataType = RequestDataType.json) => {
   const navigate = useNavigate();
 
   const jwtConfig: IJwtConfig = { ...jwtDefaultConfig };
@@ -20,10 +21,18 @@ export const useAxios = () => {
   let subscribers: any[] = [];
   var isAlreadyFetchingAccessToken = false;
 
-  const headers: AxiosRequestHeaders = {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  };
+  let headers: AxiosRequestHeaders = {};
+
+  if (dataType == RequestDataType.json) {
+    headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    };
+  } else if (dataType == RequestDataType.formData) {
+    headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+  }
 
   if (token && token != '') {
     headers['Authorization'] = `${jwtConfig.tokenType} ${token}`.trim();

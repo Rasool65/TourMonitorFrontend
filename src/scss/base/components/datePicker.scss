@@ -1,0 +1,71 @@
+.date-time-modal {
+  width: 330px;
+
+  .modal-content {
+    background: none;
+    width: 330px;
+    overflow: hidden;
+  }
+}
+
+.dark-layout {
+  .date-time-modal {
+    .modal-content {
+      .Calendar {
+        background-color: rgb(12, 41, 73);
+
+        .Calendar__header {
+          color: white;
+
+          .Calendar__monthText,
+          .Calendar__yearText {
+            color: white;
+          }
+        }
+
+        .Calendar__monthSelector,
+        .Calendar__yearSelector {
+          background-color: rgb(12, 41, 73);
+        }
+
+        .Calendar__yearSelectorWrapper {
+          &::after,
+          &::before {
+            background-image: none;
+          }
+        }
+      }
+
+      .Calendar__yearSelectorText {
+        color: #ddd;
+      }
+
+      .Calendar__monthSelectorItemText {
+        color: white;
+      }
+
+      .Calendar__day {
+        color: white;
+      }
+
+      .Calendar__day.-disabled {
+        color: #444444 !important;
+      }
+
+      .Calendar__monthSelectorItemText:disabled,
+      .Calendar__yearSelectorText:disabled {
+        opacity: 0.2;
+      }
+
+      .Calendar__monthYear.-shown > *:hover,
+      .Calendar:not(.-noFocusOutline) .Calendar__monthYear.-shown > *:focus,
+      .Calendar__monthYear > *.-activeBackground {
+        background: #103fbe;
+      }
+
+      .Calendar__monthArrow {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg class='nc-icon-wrapper' fill='%23cfcfcf'%3E%3Cdefs stroke='none'%3E%3C/defs%3E%3Cpath class='cls-1' d='M12 23.25V.75' fill='none' stroke='%23cfcfcf' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5px'%3E%3C/path%3E%3Cpath class='cls-2' d='M22.5 11.25L12 .75 1.5 11.25' fill='none' stroke='%23cfcfcf' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5px' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+      }
+    }
+  }
+}

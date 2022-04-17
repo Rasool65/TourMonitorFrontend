@@ -1,3 +1,5 @@
+$primary: #0c4da2 !default;
+
 /* rtl:begin:ignore */
 .DatePicker {
     position: relative;
@@ -435,7 +437,7 @@
   
   .Calendar__monthSelectorItem.-active .Calendar__monthSelectorItemText,
   .Calendar__yearSelectorItem.-active .Calendar__yearSelectorText {
-    background-color: var(--cl-color-primary);
+    background-color: $primary;
     color: #fff;
   }
   
@@ -552,7 +554,7 @@
   .Calendar__day.-selected,
   .Calendar__day.-selectedStart,
   .Calendar__day.-selectedEnd {
-    background: var(--cl-color-primary);
+    background: $primary;
     color: #fff;
   }
   
@@ -570,7 +572,7 @@
   
   .Calendar__day.-selectedBetween {
     background: var(--cl-color-primary-light);
-    color: var(--cl-color-primary);
+    color: $primary;
     border-radius: 0;
   }
   

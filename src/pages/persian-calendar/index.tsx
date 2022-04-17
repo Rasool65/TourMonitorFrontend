@@ -1,7 +1,8 @@
 import { FunctionComponent } from 'react';
 
 const PersianCalendar: FunctionComponent = () => {
-  return <></>;
+  return <>
+  </>;
 };
 
 export default PersianCalendar;

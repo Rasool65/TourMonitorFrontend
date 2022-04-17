@@ -8,6 +8,8 @@ import classnames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootStateType } from '@src/redux/Store';
 import { handleContentWidth, handleMenuCollapsed, handleMenuHidden } from '@src/redux/reducers/layoutReducer';
+import TourVisitPanel from '@src/components/tour-visit-panel';
+import { Col, Row, Table } from 'reactstrap';
 
 // ** Styles
 // import 'animate.css/animate.css'
@@ -20,6 +22,7 @@ const LayoutWrapper = (props: any) => {
   const dispatch = useDispatch();
   const navbarStore = useSelector((state: RootStateType) => state.navbar);
   const contentWidth = useSelector((state: RootStateType) => state.layout).contentWidth;
+  const tourVisitSelectionState = useSelector((state: RootStateType) => state.tourVisitSelection);
 
   //** Vars
   const Tag = layout === 'HorizontalLayout' && !appLayout ? 'div' : Fragment;
@@ -82,6 +85,63 @@ const LayoutWrapper = (props: any) => {
           {children}
         </Tag>
       </div>
+
+      <TourVisitPanel show={tourVisitSelectionState.showVisitPanel}>
+        {tourVisitSelectionState.visitSelection != undefined ? (
+          <>
+            <p className="header">
+              <img src={require('@src/assets/images/elements/store.png')} />
+              <div className="info">
+                <b>{tourVisitSelectionState.visitSelection.customerNumber}</b>
+                <br />
+                Lat:{tourVisitSelectionState.visitSelection.locationLat} {'   '} Long:
+                {tourVisitSelectionState.visitSelection.locationLong}
+              </div>
+
+              <span className="float-end customer-name">واحد صنفی انتخاب شده</span>
+            </p>
+            <div>
+              <Table>
+                <thead>
+                  <tr>
+                    <td>
+                      <b>Visit Details:</b>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="visit-list">
+                        {tourVisitSelectionState.visitSelection.visitsDetails.map((d) => {
+                          return (
+                            <Row>
+                              <Col xl={3} xs={12}>
+                                Visit Duration: {d.visitDuration}
+                              </Col>
+                              <Col xl={3} xs={12}>
+                                Visit Status: {d.visitStatus}
+                              </Col>
+                              <Col xl={3} xs={12}>
+                                Visit Start: {d.visitStart}
+                              </Col>
+                              <Col xl={3} xs={12}>
+                                Division: {d.division}
+                              </Col>
+                            </Row>
+                          );
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          </>
+        ) : (
+          <>d</>
+        )}
+      </TourVisitPanel>
     </>
   );
 };

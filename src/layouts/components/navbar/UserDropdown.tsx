@@ -4,7 +4,7 @@ import Avatar from '@components/avatar';
 import { useDispatch } from 'react-redux';
 import { User, Mail, CheckSquare, MessageSquare, Settings, CreditCard, HelpCircle, Power } from 'react-feather';
 import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
-import defaultAvatar from '../../../assets/images/portrait/small/avatar-s-11.jpg';
+import defaultAvatar from '../../../assets/images/avatars/avatar-blank.png';
 import { handleLogout } from '@src/redux/reducers/authenticationReducer';
 
 const UserDropdown = () => {
@@ -14,8 +14,8 @@ const UserDropdown = () => {
   useEffect(() => {
     const fakeUserData = {
       id: 1,
-      fullName: 'Rasool Aghajani',
-      username: 'Rasool65',
+      fullName: 'SAP user',
+      username: 'SAPUser',
       avatar: '/static/media/avatar-s-11.1d46cc62.jpg',
       email: 'admin@demo.com',
       role: 'admin',

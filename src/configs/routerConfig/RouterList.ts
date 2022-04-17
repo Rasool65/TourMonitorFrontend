@@ -16,7 +16,7 @@ const routes: IRoute[] = [
     component: Home,
     type: RouteType.private,
     props: {
-      title: 'صفحه اصلی',
+      title: 'SAP Tour Monitor',
     },
   },
   {
@@ -24,7 +24,7 @@ const routes: IRoute[] = [
     component: Login,
     type: RouteType.public,
     props: {
-      title: 'ورود به سیستم',
+      title: 'Tour Monitor Login',
     },
   },
   {

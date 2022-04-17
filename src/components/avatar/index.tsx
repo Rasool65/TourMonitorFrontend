@@ -74,14 +74,7 @@ const Avatar: FunctionComponent<IAvatarProps> = (props = defaultProps) => {
           width={imgWidth && !size ? imgWidth : 32}
         />
       )}
-      {status ? (
-        <span
-          className={classnames({
-            [`avatar-status-${status}`]: status,
-            [`avatar-status-${size}`]: size,
-          })}
-        ></span>
-      ) : null}
+      
     </div>
   );
 };

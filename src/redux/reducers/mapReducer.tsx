@@ -12,13 +12,35 @@ export const mapSlice = createSlice({
     setMap: (state, action) => {
       state.map = action.payload;
     },
+    setSelectedTour: (state, action) => {
+      state.selectedTour = action.payload;
+    },
     setRoutingControl: (state, action) => {
       state.routingControl = action.payload;
     },
-    // handleLogout: (state) => {},
+    setStoreMarkersLayer: (state, action) => {
+      state.storeMarkersLayer = action.payload;
+    },
+    setStoreRoutingControl: (state, action) => {
+      state.storeRoutingControl = action.payload;
+    },
+    setDriverRoutingControl: (state, action) => {
+      state.driverRoutingControl = action.payload;
+    },
+    setVisitRoutingControl: (state, action) => {
+      state.visitRoutingControl = action.payload;
+    },
   },
 });
 
-export const { setMap, setRoutingControl } = mapSlice.actions;
+export const {
+  setMap,
+  setSelectedTour,
+  setRoutingControl,
+  setStoreMarkersLayer,
+  setStoreRoutingControl,
+  setDriverRoutingControl,
+  setVisitRoutingControl,
+} = mapSlice.actions;
 
 export default mapSlice.reducer;

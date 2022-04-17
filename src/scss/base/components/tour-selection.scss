@@ -1,0 +1,14 @@
+.tour-selection {
+  padding-left: 10px;
+  padding-right: 0px;
+}
+.tour-selection li {
+  border-radius: inherit !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+  border: solid 1px #d5d5d5 !important;
+  font-family: 'IRANSans';
+}
+.dark-layout .tour-selection li {
+  border: solid 1px #7c7c7c !important;
+}

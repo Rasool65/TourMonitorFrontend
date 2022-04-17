@@ -1,5 +1,5 @@
 // ** Logo
-import logo from '@src/assets/images/logo/bonnychow_80.png'
+import logo from '@src/assets/images/logo/solico_logo.png'
 
 const SpinnerComponent = () => {
   return (

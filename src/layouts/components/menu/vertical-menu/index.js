@@ -9,6 +9,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import VerticalMenuHeader from './VerticalMenuHeader'
 import VerticalNavMenuItems from './VerticalNavMenuItems'
 import TourSelection from '@src/components/tour-selection'
+import TourUpdateLocation from '@src/components/tour-update-location'
 
 const Sidebar = props => {
   // ** Props
@@ -87,7 +88,7 @@ const Sidebar = props => {
                   currentActiveItem={currentActiveItem}
                 />
               </ul> */}
-              <TourSelection></TourSelection>
+              <TourSelection/>
             </PerfectScrollbar>
           </Fragment>
         )}

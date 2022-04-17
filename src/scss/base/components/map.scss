@@ -8,3 +8,53 @@
 .dark-layout .leaflet-container img {
   filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
+
+.map-container {
+  width: 88%;
+}
+
+.start-marker {
+  opacity: 0.5;
+}
+@include media-breakpoint-down(xl) {
+  .map-container {
+    width: 100% !important;
+  }
+}
+.custom-map-icon img {
+  width: 50px;
+  height: 50px;
+  // position: absolute;
+  // top: -31px;
+  // left: -31px;
+}
+.custom-map-icon span {
+  position: absolute;
+  top: 7px;
+  z-index: 9;
+  font-weight: bold;
+  width: 50px;
+  padding: 2px;
+  text-align: center;
+  left: 0px;
+  color: rgb(22, 22, 22);
+  // border-radius: 4px;
+  // box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+}
+.custom-customer-map-icon img {
+  width: 50px;
+  height: 50px;
+}
+.custom-customer-map-icon span {
+  position: absolute;
+  top: -23px;
+  z-index: 9;
+  font-weight: bold;
+  width: 45px;
+  padding: 2px;
+  text-align: center;
+  left: 3px;
+  color: #ffffff;
+  background: #7a307b;
+  border-radius: 5px;
+}

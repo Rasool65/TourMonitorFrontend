@@ -18,7 +18,8 @@ export const Map: FunctionComponent = (props: any) => {
           zoomControl={false}
           scrollWheelZoom={true}
           attributionControl={false}
-          style={{ height: '100vh', width: '100%', position: 'fixed' }}
+          className="map-container"
+          style={{ height: '100vh', position: 'fixed', right: 0, top: 0 }}
         >
           <TileLayer
             key={'base'}

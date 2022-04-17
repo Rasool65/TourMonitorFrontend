@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URL_LOGIN, URL_MAIN } from '../../configs/urls';
 import IPageProps from '../../configs/routerConfig/IPageProps';
@@ -19,9 +19,11 @@ import {
   CardTitle,
   Col,
   Form,
+  FormFeedback,
   Input,
   Label,
   Row,
+  Spinner,
   UncontrolledTooltip,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -34,7 +36,7 @@ import { APIURL_LOGIN } from '@src/configs/apiConfig/apiUrls';
 import { useToast } from '@src/hooks/useToast';
 import { useDispatch } from 'react-redux';
 import { handleLogin } from '@src/redux/reducers/authenticationReducer';
-import logo from '@src/assets/images/logo/bonnychow_80.png';
+import logo from '@src/assets/images/logo/solico_logo.png';
 import themeConfig from '@src/configs/theme/themeConfig';
 import { ILoginResultModel } from '@src/models/output/authentication/ILoginResultModel';
 import { IOutputResult } from '@src/models/output/IOutputResult';
@@ -46,7 +48,9 @@ const Login: FunctionComponent<IPageProps> = (props) => {
 
   const { skin } = useSkin();
 
-  const illustration = skin === 'dark' ? 'login-v2-dark.svg' : 'login-v2.svg';
+  const illustration = skin === 'dark' ? 'login-v2-dark.svg' : 'login_main.svg';
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const source = require(`@src/assets/images/pages/${illustration}`);
   const httpRequest = useHttpRequest();
   const toast = useToast();
@@ -63,19 +67,21 @@ const Login: FunctionComponent<IPageProps> = (props) => {
   } = useForm<ILoginModel>({ mode: 'onChange', resolver: yupResolver(LoginModelSchema) });
 
   const onSubmit = (data: ILoginModel) => {
-    if (data) {
+    if (data && !isLoading) {
+      setIsLoading(true);
       httpRequest
         .postRequest<IOutputResult<ILoginResultModel>>(APIURL_LOGIN, { username: data.userName, password: data.password })
         .then((result) => {
           dispatch(handleLogin(result));
           navigate(URL_MAIN);
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
   };
 
   return (
     <div className="auth-wrapper auth-cover">
-      <Row className="auth-inner m-0">
+      <Row className="auth-inner m-0 d-flex ">
         <Col className="d-none d-lg-flex align-items-center p-5" lg="8" sm="12">
           <div className="w-100 d-lg-flex align-items-center justify-content-center px-5">
             <img className="img-fluid" src={source} alt="Login Cover" />
@@ -111,20 +117,23 @@ const Login: FunctionComponent<IPageProps> = (props) => {
             <Form className="auth-login-form mt-2" onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-1">
                 <Label className="form-label" for="login-username">
-                  UserName
+                  Username
                 </Label>
                 <Controller
                   name="userName"
                   control={control}
                   render={({ field }) => (
-                    <Input
-                      autoFocus
-                      type="text"
-                      placeholder="UserName"
-                      autoComplete="off"
-                      invalid={errors.userName && true}
-                      {...field}
-                    />
+                    <>
+                      <Input
+                        autoFocus
+                        type="text"
+                        placeholder="Please enter your username"
+                        autoComplete="off"
+                        invalid={errors.userName && true}
+                        {...field}
+                      />
+                      <FormFeedback>{errors.userName?.message}</FormFeedback>
+                    </>
                   )}
                 />
               </div>
@@ -133,31 +142,28 @@ const Login: FunctionComponent<IPageProps> = (props) => {
                   <Label className="form-label" for="login-password">
                     Password
                   </Label>
-                  <Link to="/forgot-password">
-                    <small>Forgot Password?</small>
-                  </Link>
                 </div>
                 <Controller
                   name="password"
                   control={control}
                   render={({ field }) => (
-                    <InputPasswordToggle
-                      inputClassName=""
-                      className="input-group-merge"
-                      invalid={errors.password && true}
-                      {...field}
-                    />
+                    <>
+                      <InputPasswordToggle
+                        inputClassName=""
+                        placeholder="Please enter your password"
+                        visible={false}
+                        className="input-group-merge"
+                        invalid={errors.password && true}
+                        {...field}
+                      />
+                      <FormFeedback>{errors.password?.message}</FormFeedback>
+                    </>
                   )}
                 />
               </div>
-              <div className="form-check mb-1">
-                <Input type="checkbox" id="remember-me" />
-                <Label className="form-check-label" for="remember-me">
-                  Remember Me
-                </Label>
-              </div>
+
               <Button type="submit" color="primary" block>
-                Sign in
+                {isLoading ? <Spinner style={{ width: '1rem', height: '1rem' }} /> : 'Sign In'}
               </Button>
             </Form>
             {/* <p className="text-center mt-2">

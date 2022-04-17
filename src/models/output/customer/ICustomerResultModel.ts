@@ -1,4 +1,8 @@
 export interface ICustomerResultModel {
-  locatioN_LONG: number;
-  locatioN_LATIT: number;
+  tourId: number;
+  customerNumber: number;
+  customerName: string;
+  customerAddress: string;
+  locationLong: number;
+  locationLatit: number;
 }

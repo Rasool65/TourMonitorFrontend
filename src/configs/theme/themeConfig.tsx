@@ -4,7 +4,7 @@
 const themeConfig = {
   app: {
     appName: 'Tour Monitor',
-    appLogoImage: require('@src/assets/images/logo/bonnychow_80.png'),
+    appLogoImage: require('@src/assets/images/logo/solico_logo.png'),
     useRefreshToken: false,
   },
   layout: {

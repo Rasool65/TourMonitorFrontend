@@ -18,14 +18,76 @@
 
 .main-menu .navbar-header {
   height: 5.5rem;
-  background-color: #d9d9d9;
-}
-.dark-layout .main-menu .navbar-header {
-  background-color: #141d3e;
+  // background-color: #d9d9d9;
 }
 
 .calendar-btn {
   padding: 0px;
   padding-right: 10px;
   padding-left: 10px;
+}
+.p-relative {
+  position: relative;
+}
+
+.favourite-tour-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.favourite-tour-header button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+}
+
+.form-favorite-switch .is-favorite {
+  fill: #ff9f43;
+  stroke: #ff9f43;
+}
+.form-favorite-switch {
+  color: #babfc7;
+}
+.main-menu .accordion .accordion-header .accordion-button {
+  font-weight: 600;
+  font-size: 13px;
+}
+.main-menu .accordion {
+  background-color: #f7f7f7;
+}
+.dark-layout .main-menu .accordion {
+  background-color: #141d3e;
+}
+.tour-item {
+  margin-bottom: 5px;
+}
+.tour-item button {
+  font-size: 12px;
+  text-align: left;
+  background-color: #f7f7f7;
+  border: solid 1px #e1e1e1;
+  padding: 5px;
+  border-radius: 3px;
+  width: 100%;
+  color: #585858;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-family: 'IRANSans';
+}
+.tour-item button.active {
+  background-color: #0c4da2;
+  color: white;
+  border-color: #0d438b;
+}
+.dark-layout .tour-item button {
+  background-color: #282d3a;
+  border: solid 1px #23262e;
+  color: #b5b5b5;
+}
+.dark-layout .tour-item button.active {
+  background-color: #0c4da2;
+  color: white;
+  border-color: #0d438b;
 }

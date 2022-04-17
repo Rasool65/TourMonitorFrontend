@@ -6,6 +6,6 @@ export interface ILoginModel {
 }
 
 export const LoginModelSchema: yup.SchemaOf<ILoginModel> = yup.object({
-  userName: yup.string().required(),
-  password: yup.string().required(),
+  userName: yup.string().required('Username is required'),
+  password: yup.string().required('Password is required'),
 });

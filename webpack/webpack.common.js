@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 
 const cssLoaders = (extra) => {
   const loaders = [
@@ -50,7 +50,7 @@ module.exports = {
     },
   },
   devServer: {
-    port: 1000,
+    port: 1500,
     historyApiFallback: true,
   },
   module: {
@@ -75,10 +75,16 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext]',
+        },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        },
       },
     ],
   },
@@ -87,13 +93,13 @@ module.exports = {
       template: path.resolve(__dirname, '..', './public/index.html'),
     }),
     new CopyPlugin({
-      patterns :[
-          {from :'public/robots.txt' ,to : 'robots.txt'},
-          {from :'public/favicon.ico' ,to : 'favicon.ico'},
-          {from :'public/manifest.json' ,to : 'manifest.json'},
-          {from :'public/assets' ,to : 'assets'},
+      patterns: [
+        { from: 'public/robots.txt', to: 'robots.txt' },
+        { from: 'public/favicon.ico', to: 'favicon.ico' },
+        { from: 'public/manifest.json', to: 'manifest.json' },
+        { from: 'public/assets', to: 'assets' },
       ],
-  })
+    }),
   ],
   stats: 'errors-only',
 };
