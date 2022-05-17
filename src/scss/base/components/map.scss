@@ -9,6 +9,10 @@
   filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
 
+.dark-layout .leaflet-marker-icon img , .dark-layout .leaflet-marker-icon{
+  filter: none !important;
+}
+
 .map-container {
   width: 88%;
 }
@@ -47,14 +51,12 @@
 }
 .custom-customer-map-icon span {
   position: absolute;
-  top: -23px;
+  top: 7px;
   z-index: 9;
   font-weight: bold;
-  width: 45px;
+  width: 50px;
   padding: 2px;
   text-align: center;
-  left: 3px;
-  color: #ffffff;
-  background: #7a307b;
-  border-radius: 5px;
+  left: 0px;
+  color: rgb(22, 22, 22);
 }

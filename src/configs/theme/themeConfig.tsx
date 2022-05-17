@@ -6,6 +6,8 @@ const themeConfig = {
     appName: 'Tour Monitor',
     appLogoImage: require('@src/assets/images/logo/solico_logo.png'),
     useRefreshToken: false,
+    autoServerMessageOnError: true,
+    showSystemError: false,
   },
   layout: {
     isRTL: false,

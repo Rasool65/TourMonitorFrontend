@@ -51,6 +51,7 @@ const TourSelection: FunctionComponent = (props) => {
   const httpRequest = useHttpRequest();
   const toast = useToast();
   const mapState = useSelector((state: RootStateType) => state.map);
+  const commandState = useSelector((state: RootStateType) => state.command);
   const [open, setOpen] = useState<any>('1');
   const dateTime = usePersianDate();
   const [selectedDay, setSelectedDay] = useState<any>(todayObject());
@@ -69,6 +70,14 @@ const TourSelection: FunctionComponent = (props) => {
   useEffect(() => {
     prepareTourSelection();
   }, [mapState.selectedTour]);
+
+  useEffect(() => {
+    loadFavouriteDrivers();
+  }, [selectedDay]);
+
+  useEffect(() => {
+    loadFavouriteDrivers();
+  }, [commandState.refreshFavouriteDriversTrigger]);
 
   useEffect(() => {
     prepareTourSelection();

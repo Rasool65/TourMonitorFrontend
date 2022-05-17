@@ -98,7 +98,7 @@ const LayoutWrapper = (props: any) => {
                 {tourVisitSelectionState.visitSelection.locationLong}
               </div>
 
-              <span className="float-end customer-name">واحد صنفی انتخاب شده</span>
+              <span className="float-end customer-name">{tourVisitSelectionState.visitSelection.customerName}</span>
             </p>
             <div>
               <Table>
@@ -116,17 +116,14 @@ const LayoutWrapper = (props: any) => {
                         {tourVisitSelectionState.visitSelection.visitsDetails.map((d) => {
                           return (
                             <Row>
-                              <Col xl={3} xs={12}>
-                                Visit Duration: {d.visitDuration}
+                              <Col xl={4} xs={12}>
+                                Sales Area: {d.salesArea}
                               </Col>
-                              <Col xl={3} xs={12}>
-                                Visit Status: {d.visitStatus}
+                              <Col xl={4} xs={12}>
+                                Visit Time: {d.visitStart}
                               </Col>
-                              <Col xl={3} xs={12}>
-                                Visit Start: {d.visitStart}
-                              </Col>
-                              <Col xl={3} xs={12}>
-                                Division: {d.division}
+                              <Col xl={4} xs={12}>
+                                Sales Net Weight (KG): {d.customerSalesWeight}
                               </Col>
                             </Row>
                           );

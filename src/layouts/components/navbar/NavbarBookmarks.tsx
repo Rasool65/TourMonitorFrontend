@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStateType } from '@src/redux/Store';
 import { handleSearchQuery } from '@src/redux/reducers/navbarReducer';
 import { INavbarItem } from './INavbarItem';
+import { refreshFavouriteDrivers } from '@src/redux/reducers/commandReducer';
 
 const NavbarBookmarks = (props: any) => {
   const { setMenuVisibility } = props;
@@ -49,7 +50,12 @@ const NavbarBookmarks = (props: any) => {
       <>
         <NavItem className="nav-item d-none d-lg-block">
           <NavLink>
-            <Icon.RefreshCcw className="ficon" />
+            <Icon.RefreshCcw
+              className="ficon"
+              onClick={() => {
+                dispatch(refreshFavouriteDrivers());
+              }}
+            />
             {/* <UncontrolledTooltip target={item.target}>{item.title}</UncontrolledTooltip> */}
           </NavLink>
         </NavItem>

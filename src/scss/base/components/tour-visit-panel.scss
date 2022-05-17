@@ -10,6 +10,9 @@
     -webkit-box-shadow: 0px -4px 12px -1px rgba(0,0,0,0.48); 
     box-shadow: 0px -4px 12px -1px rgba(0,0,0,0.48);
 }
+.dark-layout .visit-panel{
+    background-color: #1a2030;
+}
 .visit-panel .btn-close{
     position: absolute;
     right: 13px;
@@ -22,7 +25,9 @@
     background: #ededed;
     border-radius: 7px;
 }
-
+.dark-layout .visit-panel .header{
+    background: #3f4d72;
+}
 .visit-panel .header img{
     width: 40px;
     margin-right: 5px;
@@ -41,6 +46,7 @@ font-size: 15px;
     font-weight: bold;
     margin-top: 9px;
     margin-right: 8px;
+    font-family: "IRANSans";
 }
 
 .visit-panel .visit-list {

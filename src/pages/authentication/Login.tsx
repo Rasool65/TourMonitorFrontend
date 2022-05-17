@@ -72,7 +72,7 @@ const Login: FunctionComponent<IPageProps> = (props) => {
       httpRequest
         .postRequest<IOutputResult<ILoginResultModel>>(APIURL_LOGIN, { username: data.userName, password: data.password })
         .then((result) => {
-          dispatch(handleLogin(result));
+          dispatch(handleLogin({ token: result.data.data.token, username: data.userName }));
           navigate(URL_MAIN);
         })
         .finally(() => setIsLoading(false));

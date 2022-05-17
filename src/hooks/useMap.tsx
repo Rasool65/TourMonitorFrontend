@@ -95,10 +95,12 @@ export const useMap = () => {
       if (mapState.storeMarkersLayer != undefined) map.removeLayer(mapState.storeMarkersLayer);
       var markerLayer = new L.LayerGroup();
       let bounds = latLngBounds([]);
-      data.map((item) => {
+      data.map((item, index) => {
+        let defaultIcon = icon;
+        defaultIcon = customCustomerIcon(index + 1);
         let marker = L.marker(L.latLng(item.locationLatit, item.locationLong), {
           draggable: false,
-          icon: icon,
+          icon: defaultIcon,
         }).on('click', () => {
           // alert('click');
         });
@@ -155,7 +157,7 @@ export const useMap = () => {
           createRoutineMachineLayer(
             items,
             routingServer,
-            startDriverMarkerIcon,
+            driverPointMarkerIcon,
             driverMarkerIcon,
             driverPointMarkerIcon,
             fitSelectedRoutes

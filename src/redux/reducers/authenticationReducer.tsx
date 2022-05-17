@@ -10,6 +10,10 @@ const initialUser = () => {
   const item = window.localStorage.getItem('userData');
   return item ? JSON.parse(item) : {};
 };
+const initialUserName = () => {
+  const item = window.localStorage.getItem('username');
+  return item ? item : '';
+};
 
 const initialAuthentication = () => {
   return tokenAuthentication.isAuthenticate();
@@ -20,18 +24,22 @@ export const authSlice = createSlice({
   initialState: {
     userData: initialUser(),
     isAuthenticate: initialAuthentication(),
+    username: initialUserName(),
   } as IAuthenticationReducerState,
   reducers: {
     handleLogin: (state, action) => {
       var result = action.payload;
-      tokenAuthentication.saveLoginToken(result.data.data.token, result.data.data.token);
-      // // localStorage.setItem('userData', JSON.stringify(result.data.user))
+      tokenAuthentication.saveLoginToken(result.token, result.token);
+      localStorage.setItem('username', result.username);
+      state.username = result.username;
       state.isAuthenticate = true;
     },
     handleLogout: (state) => {
       tokenAuthentication.deleteLogoutToken();
       state.isAuthenticate = false;
       state.userData = {};
+      state.username = '';
+      localStorage.removeItem('username');
     },
   },
 });

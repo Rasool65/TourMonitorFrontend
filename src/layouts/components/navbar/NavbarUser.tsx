@@ -25,7 +25,7 @@ const NavbarUser = (props: any) => {
           <ThemeToggler />
         </NavLink>
       </NavItem>
-      <NavbarSearch />
+      {/* <NavbarSearch /> */}
       {/* <NotificationDropdown /> */}
       <UserDropdown />
     </ul>

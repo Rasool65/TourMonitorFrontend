@@ -1,48 +1,28 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Avatar from '@components/avatar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { User, Mail, CheckSquare, MessageSquare, Settings, CreditCard, HelpCircle, Power } from 'react-feather';
 import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap';
 import defaultAvatar from '../../../assets/images/avatars/avatar-blank.png';
 import { handleLogout } from '@src/redux/reducers/authenticationReducer';
+import { RootStateType } from '@src/redux/Store';
+import { API_BASE_URL } from '@src/configs/apiConfig/apiBaseUrl';
 
 const UserDropdown = () => {
   const dispatch = useDispatch();
-  const [userData, setUserData] = useState<any>(null);
+  const authenticationStore = useSelector((state: RootStateType) => state.authentication);
 
-  useEffect(() => {
-    const fakeUserData = {
-      id: 1,
-      fullName: 'SAP user',
-      username: 'SAPUser',
-      avatar: '/static/media/avatar-s-11.1d46cc62.jpg',
-      email: 'admin@demo.com',
-      role: 'admin',
-      ability: [{ action: 'manage', subject: 'all' }],
-      extras: { eCommerceCartItemsCount: 5 },
-      accessToken:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQwODU0MTM3LCJleHAiOjE2NDA4NTQ3Mzd9.oK4m0SCBJs3hnZg_FRFT_m9xK-Ora11GQkkE-JQZOws',
-      refreshToken:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQwODU0MTM3LCJleHAiOjE2NDA4NTQ3Mzd9.VuI-SYcoLebKDhOwmDV0uK6O6B9vGXLRP-oqLbJ2mvY',
-    };
-    // if (isUserLoggedIn() !== null) {
-    // setUserData(JSON.parse(localStorage.getItem('userData')))
-    // }
-    setUserData(fakeUserData);
-  }, []);
-
-  const userAvatar = (userData && userData.avatar) || defaultAvatar;
-  console.log(userData);
+  const userAvatar = defaultAvatar;
 
   return (
     <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
       <DropdownToggle href="/" tag="a" className="nav-link dropdown-user-link" onClick={(e) => e.preventDefault()}>
         <div className="user-nav d-sm-flex d-none">
-          <span className="user-name fw-bold">{(userData && userData['username']) || 'John Doe'}</span>
-          <span className="user-status">{(userData && userData.role) || 'Admin'}</span>
+          <span className="user-name fw-bold">{authenticationStore.username}</span>
+          <span className="user-status"></span>
         </div>
-        <Avatar imgClassName="" className="" img={defaultAvatar} imgHeight="40" imgWidth="40" status="online" />
+        <Avatar imgClassName="" className="" img={userAvatar} imgHeight="40" imgWidth="40" status="online" />
       </DropdownToggle>
       <DropdownMenu end>
         {/* <DropdownItem tag={Link} to="/pages/profile">

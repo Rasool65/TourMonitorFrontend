@@ -113,7 +113,7 @@ export const TourSelectionModal: FunctionComponent<TourSelectionModalProp> = (pr
   const preapreGroupTourdata = (data: TourGroupModel[]) => {
     groupTourSelectdata = [];
     data.forEach((d) => {
-      groupTourSelectdata.push({ value: d.grouping, label: d.description });
+      groupTourSelectdata.push({ value: d.grouping, label: d.grouping + ' - ' + d.description });
     });
   };
 

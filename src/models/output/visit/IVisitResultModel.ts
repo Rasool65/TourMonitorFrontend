@@ -1,5 +1,6 @@
 export interface IVisitResultModel {
   tourId: string;
+  customerName: string;
   customerNumber: string;
   locationLat: number;
   locationLong: number;
@@ -11,6 +12,8 @@ export interface IVisitDetailResultModel {
   locationLong: number;
   locationLat: number;
   salesOrg: string;
+  salesArea?: string;
+  visitTime?: string;
   distChannel: string;
   division: string;
   createFlag: string;
