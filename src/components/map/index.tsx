@@ -23,7 +23,7 @@ export const Map: FunctionComponent = (props: any) => {
         >
           <TileLayer
             key={'base'}
-            attribution='&copy; <a href="#">Solico Group</a> software'
+            attribution='&copy; <a href="#">Bahman Group</a> software'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapConsumer>

@@ -36,7 +36,7 @@ import { APIURL_LOGIN } from '@src/configs/apiConfig/apiUrls';
 import { useToast } from '@src/hooks/useToast';
 import { useDispatch } from 'react-redux';
 import { handleLogin } from '@src/redux/reducers/authenticationReducer';
-import logo from '@src/assets/images/logo/solico_logo.png';
+import logo from '@src/assets/images/logo/bahmanMotors_logo.png';
 import themeConfig from '@src/configs/theme/themeConfig';
 import { ILoginResultModel } from '@src/models/output/authentication/ILoginResultModel';
 import { IOutputResult } from '@src/models/output/IOutputResult';
@@ -69,13 +69,15 @@ const Login: FunctionComponent<IPageProps> = (props) => {
   const onSubmit = (data: ILoginModel) => {
     if (data && !isLoading) {
       setIsLoading(true);
-      httpRequest
-        .postRequest<IOutputResult<ILoginResultModel>>(APIURL_LOGIN, { username: data.userName, password: data.password })
-        .then((result) => {
-          dispatch(handleLogin({ token: result.data.data.token, username: data.userName }));
-          navigate(URL_MAIN);
-        })
-        .finally(() => setIsLoading(false));
+      dispatch(handleLogin({ token: 'token', username: 'Rasool' }));
+      navigate(URL_MAIN);
+      // httpRequest
+      //   .postRequest<IOutputResult<ILoginResultModel>>(APIURL_LOGIN, { username: data.userName, password: data.password })
+      //   .then((result) => {
+      //     dispatch(handleLogin({ token: "result.data.data.token", username: "data.userName" }));
+      //     navigate(URL_MAIN);
+      //   })
+      //   .finally(() => setIsLoading(false));
     }
   };
 
@@ -90,7 +92,7 @@ const Login: FunctionComponent<IPageProps> = (props) => {
         <Col className="d-flex align-items-center auth-bg px-2 p-lg-5" lg="4" sm="12">
           <Col className="px-xl-2 mx-auto" sm="8" md="6" lg="12">
             <div className="w-100 justify-content-center text-center">
-              <img className="img-fluid" src={logo} alt="Solico" />
+              <img className="img-fluid" src={logo} alt="Bahman" />
             </div>
             <CardTitle tag="h4" className="fw-bold mb-1 mt-2 text-center text-primary">
               {themeConfig.app.appName}
@@ -166,7 +168,7 @@ const Login: FunctionComponent<IPageProps> = (props) => {
                 {isLoading ? <Spinner style={{ width: '1rem', height: '1rem' }} /> : 'Sign In'}
               </Button>
             </Form>
-            {/* <p className="text-center mt-2">
+            <p className="text-center mt-2">
               <span className="me-25">New on our platform?</span>
               <Link to="/register">
                 <span>Create an account</span>
@@ -188,7 +190,7 @@ const Login: FunctionComponent<IPageProps> = (props) => {
               <Button className="me-0" color="github">
                 <GitHub size={14} />
               </Button>
-            </div> */}
+            </div>
           </Col>
         </Col>
       </Row>

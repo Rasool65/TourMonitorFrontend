@@ -2,7 +2,7 @@ import IRoute from './IRoute';
 import RouteType from './RouteType';
 // import Contact from '../../pages/contact/Contact';
 // import Home from '../../pages/home/Home';
-import { URL_CONTACT_US, URL_MAIN, URL_LOGIN, PERSIAN_CALENDAR1,PERSIAN_CALENDAR_MODERN } from '../urls';
+import { URL_CONTACT_US, URL_MAIN, URL_LOGIN, PERSIAN_CALENDAR1, PERSIAN_CALENDAR_MODERN } from '../urls';
 import Login from '../../pages/authentication/Login';
 
 import Contact from '../../views/contact/Contact';
@@ -16,7 +16,7 @@ const routes: IRoute[] = [
     component: Home,
     type: RouteType.private,
     props: {
-      title: 'SAP Tour Monitor',
+      title: 'Bahman Motors',
     },
   },
   {
@@ -24,7 +24,7 @@ const routes: IRoute[] = [
     component: Login,
     type: RouteType.public,
     props: {
-      title: 'Tour Monitor Login',
+      title: 'Bahman Motors Login',
     },
   },
   {

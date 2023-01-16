@@ -8,7 +8,7 @@ import { Disc, X, Circle } from 'react-feather';
 // ** Config
 import themeConfig from '@configs/theme/themeConfig';
 
-const VerticalMenuHeader = (props) => {
+const VerticalMenuHeader = (props: any) => {
   // ** Props
   const { menuCollapsed, setMenuCollapsed, setMenuVisibility, setGroupOpen, menuHover } = props;
 
@@ -46,9 +46,9 @@ const VerticalMenuHeader = (props) => {
         <li className="nav-item me-auto">
           <NavLink to="/" className="navbar-brand">
             <span className="brand-logo">
-              <img src={themeConfig.app.appLogoImage} alt="logo" />
+              <img src={themeConfig.app.appLogo} alt="logo" />
             </span>
-            <h2 className="brand-text mb-0">{themeConfig.app.appName}</h2>
+            <h2 className="brand-text mb-0">{'BAHMAN'}</h2>
           </NavLink>
         </li>
         {/* <li className="nav-item nav-toggle">

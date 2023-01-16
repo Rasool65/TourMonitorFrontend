@@ -112,7 +112,7 @@ const TourSelection: FunctionComponent = (props) => {
         .getRequest<IOutputResult<IFavouriteTour[]>>(
           APIURL_FAVORITE_DRIVERS,
           function () {
-            toast.showError('خطایی در دریافت اطلاعات رانندگان روی داده است');
+            toast.showError('خطایی در دریافت اطلاعات روی داده است');
             setLoadingTour(false);
           },
           { params: { date: dateSplitFormat(selectedDay.year, selectedDay.month, selectedDay.day, '-') } }
@@ -203,7 +203,7 @@ const TourSelection: FunctionComponent = (props) => {
         />
       </Modal>
       <div className="mt-1 mb-1 p-relative favourite-tour-header">
-        <h4>Favourite Tour</h4>
+        <h4>Select the Car</h4>
         <Button className="btn-icon rounded-circle" onClick={() => handleShowSelectTourModal()} color="flat-success">
           <Plus size={16} />
         </Button>

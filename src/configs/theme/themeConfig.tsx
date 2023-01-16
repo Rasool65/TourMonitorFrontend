@@ -3,8 +3,9 @@
 //Template config options
 const themeConfig = {
   app: {
-    appName: 'Tour Monitor',
-    appLogoImage: require('@src/assets/images/logo/solico_logo.png'),
+    appName: 'Bahman Motors',
+    appLogoImage: require('@src/assets/images/logo/bahmanMotors_logo.png'),
+    appLogo: require('@src/assets/images/logo/bahmanMotors_logo1.png'),
     useRefreshToken: false,
     autoServerMessageOnError: true,
     showSystemError: false,
