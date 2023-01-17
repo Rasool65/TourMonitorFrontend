@@ -65,7 +65,24 @@ export const Map: FunctionComponent = (props: any) => {
               return (
                 <Marker position={[car.geoCoordinate.latitude, car.geoCoordinate.longitude]}>
                   <Popup>
-                    <>{car.plate}</>
+                    <>
+                      <p>vin:{car.vin}</p>
+                      <p>plate:{car.plate}</p>
+                      <p>latitude:{car.geoCoordinate.latitude}</p>
+                      <p>longitude:{car.geoCoordinate.longitude}</p>
+                      <p>fuelLevel:{car.fuelLevel}</p>
+                      <p>address:{car.address}</p>
+                      <p>locationAlias:{car.locationAlias}</p>
+                      <p>locationId:{car.locationId}</p>
+                      <p>parkingId:{car.parkingId}</p>
+                      <p>buildSeries:{car.buildSeries}</p>
+                      <p>fuelType:{car.fuelType}</p>
+                      <p>primaryColor:{car.primaryColor}</p>
+                      <p>charging:{car.charging ? <img /> : <img />} </p>
+                      <p>freeForRental:{car.freeForRental ? <img /> : <img />}</p>
+                      <p>hardwareVersion:{car.hardwareVersion}</p>
+                      <p>globalVersion:{car.globalVersion}</p>
+                    </>
                   </Popup>
                 </Marker>
               );

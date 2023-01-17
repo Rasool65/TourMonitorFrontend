@@ -33,13 +33,13 @@ const VehicleList: FunctionComponent<vehicleListProps> = () => {
         vehicles.map((car: IVehiclesResultModel, index: number) => {
           return (
             <>
-              <h5
+              <h3
                 onClick={() => {
                   dispatch(setMap([car.geoCoordinate.latitude, car.geoCoordinate.longitude]));
                 }}
               >
                 {index}-{car.plate}
-              </h5>
+              </h3>
             </>
           );
         })}
