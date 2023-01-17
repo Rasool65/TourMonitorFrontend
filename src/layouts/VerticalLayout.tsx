@@ -1,32 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux';
-
-// ** Third Party Components
 import classnames from 'classnames';
 import { ArrowUp } from 'react-feather';
-
-// ** Reactstrap Imports
 import { Navbar, Button } from 'reactstrap';
-
-// ** Configs
 import themeConfig from '../configs/theme/themeConfig';
-
-// ** Custom Components
-import FooterComponent from './components/footer';
+// import FooterComponent from './components/footer';
 import NavbarComponent from './components/navbar';
 import SidebarComponent from './components/menu/vertical-menu';
-
-// ** Custom Hooks
 import { useRTL } from '@src/hooks/useRTL';
 import { useSkin } from '@src/hooks/useSkin';
 import { useNavbarType } from '@src/hooks/useNavbarType';
 import { useFooterType } from '@src/hooks/useFooterType';
 import { useNavbarColor } from '@src/hooks/useNavbarColor';
-
-// ** Styles
 import '../scss/base/core/menu/menu-types/vertical-menu.scss';
 import '../scss/base/core/menu/menu-types/vertical-overlay-menu.scss';
 import { RootStateType } from '@src/redux/Store';
@@ -35,66 +21,51 @@ import ScrollTop from '../components/scrolltop';
 import { handleContentWidth, handleMenuCollapsed, handleMenuHidden } from '@src/redux/reducers/layoutReducer';
 
 const VerticalLayout = (props: any) => {
-  // ** Props
   const { menu, navbar, footer, menuData, children, routerProps, setLastLayout, currentActiveItem } = props;
 
-  // ** Hooks
   const [isRtl, setIsRtl] = useRTL();
   const { skin, setSkin } = useSkin();
   const { navbarType, setNavbarType } = useNavbarType();
   const { footerType, setFooterType } = useFooterType();
   const { navbarColor, setNavbarColor } = useNavbarColor();
 
-  // ** States
   const [isMounted, setIsMounted] = useState(false);
   const [menuVisibility, setMenuVisibility] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // ** Store Vars
   const dispatch = useDispatch();
   const layoutStore = useSelector((state: RootStateType) => state.layout);
 
-  // ** Update Window Width
   const handleWindowWidth = () => {
     setWindowWidth(window.innerWidth);
   };
 
-  // ** Vars
   const navigate = useNavigate();
   const contentWidth = layoutStore.contentWidth;
   const menuCollapsed = layoutStore.menuCollapsed;
   const isHidden = layoutStore.menuHidden;
 
-  // ** Toggles Menu Collapsed
   const setMenuCollapsed = (val: any) => dispatch(handleMenuCollapsed(val));
-
-  // ** Handles Content Width
   const setContentWidth = (val: any) => dispatch(handleContentWidth(val));
-
-  // ** Handles Content Width
   const setIsHidden = (val: any) => dispatch(handleMenuHidden(val));
 
-  //** This function will detect the Route Change and will hide the menu on menu item click
   useEffect(() => {
     if (menuVisibility && windowWidth < 1200) {
       setMenuVisibility(false);
     }
   }, [navigate]);
 
-  //** Sets Window Size & Layout Props
   useEffect(() => {
     if (window !== undefined) {
       window.addEventListener('resize', handleWindowWidth);
     }
   }, [windowWidth]);
 
-  //** ComponentDidMount
   useEffect(() => {
     setIsMounted(true);
     return () => setIsMounted(false);
   }, []);
 
-  // ** Vars
   const footerClasses = {
     static: 'footer-static',
     sticky: 'footer-fixed',
@@ -169,15 +140,12 @@ const VerticalLayout = (props: any) => {
         </div>
       </Navbar>
       {children}
-
-      {/* Vertical Nav Menu Overlay */}
       <div
         className={classnames('sidenav-overlay', {
           show: menuVisibility,
         })}
         onClick={() => setMenuVisibility(false)}
       ></div>
-      {/* Vertical Nav Menu Overlay */}
 
       {themeConfig.layout.customizer === true ? (
         <Customizer
@@ -209,9 +177,7 @@ const VerticalLayout = (props: any) => {
         className={classnames(`footer footer-light ${footerClasses[footerType] || 'footer-static'}`, {
           'd-none': footerType === 'hidden',
         })}
-      >
-        {footer ? footer : <FooterComponent footerType={footerType} footerClasses={footerClasses} />}
-      </footer>
+      ></footer>
 
       {themeConfig.layout.scrollTop === true ? (
         <div className="scroll-to-top">

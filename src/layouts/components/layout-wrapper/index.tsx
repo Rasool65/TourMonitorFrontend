@@ -1,31 +1,16 @@
-// ** React Imports
 import { Fragment, useEffect } from 'react';
-
-// ** Third Party Components
 import classnames from 'classnames';
-
-// ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux';
 import { RootStateType } from '@src/redux/Store';
 import { handleContentWidth, handleMenuCollapsed, handleMenuHidden } from '@src/redux/reducers/layoutReducer';
 
-import { Col, Row, Table } from 'reactstrap';
-
-// ** Styles
-// import 'animate.css/animate.css'
-
 const LayoutWrapper = (props: any) => {
-  // ** Props
   const { layout, children, appLayout, wrapperClass, transition, routeMeta } = props;
-
-  // ** Store Vars
   const dispatch = useDispatch();
   const contentWidth = useSelector((state: RootStateType) => state.layout).contentWidth;
 
-  //** Vars
   const Tag = layout === 'HorizontalLayout' && !appLayout ? 'div' : Fragment;
 
-  // ** Clean Up Function
   const cleanUp = () => {
     if (routeMeta) {
       if (routeMeta.contentWidth) {
@@ -40,7 +25,6 @@ const LayoutWrapper = (props: any) => {
     }
   };
 
-  // ** ComponentDidMount
   useEffect(() => {
     if (routeMeta) {
       if (routeMeta.contentWidth) {
