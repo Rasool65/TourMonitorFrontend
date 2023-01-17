@@ -1,4 +1,3 @@
-import navigation from '@src/navigation/vertical';
 import VerticalLayout from '@src/layouts/VerticalLayout';
 import { Fragment, FunctionComponent } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -32,7 +31,6 @@ const Routers: FunctionComponent = () => {
                       transition={transition}
                       setTransition={setTransition}
                       setLayout={setLayout}
-                      menuData={navigation}
                     >
                       <LayoutWrapper layout="VerticalLayout" transition={transition} setTransition={setTransition}>
                         <route.component name={route.name} {...route.props} />

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import IPageProps from '../../configs/routerConfig/IPageProps';
 import { RootStateType } from '../../redux/Store';
-import { useMap } from '@src/hooks/useMap';
 import useHttpRequest from '@src/hooks/useHttpRequest';
 import { IOutputResult } from '@src/models/output/IOutputResult';
 import { CheckSquare, Grid, Mail, MessageSquare, List, Check, X, Circle, Map, MapPin, Navigation } from 'react-feather';
@@ -17,7 +16,6 @@ const Home: FunctionComponent<IPageProps> = (props: any) => {
 
   const mapState = useSelector((state: RootStateType) => state.map);
   const getBoolean = (value: any) => (value === 'true' ? true : false);
-  const map = useMap();
 
   const [selected, setSelected] = useState<Number>(0);
 

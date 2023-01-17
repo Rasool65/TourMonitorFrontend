@@ -1,7 +1,5 @@
 import IntlDropdown from './IntlDropdown';
 import UserDropdown from './UserDropdown';
-import NavbarSearch from './NavbarSearch';
-import NotificationDropdown from './NotificationDropdown';
 import { Sun, Moon } from 'react-feather';
 import { NavItem, NavLink } from 'reactstrap';
 
@@ -19,14 +17,12 @@ const NavbarUser = (props: any) => {
 
   return (
     <ul className="nav navbar-nav align-items-center ms-auto">
-      {/* <IntlDropdown /> */}
+      <IntlDropdown />
       <NavItem className="d-none d-lg-block">
         <NavLink className="nav-link-style">
           <ThemeToggler />
         </NavLink>
       </NavItem>
-      {/* <NavbarSearch /> */}
-      {/* <NotificationDropdown /> */}
       <UserDropdown />
     </ul>
   );
