@@ -36,7 +36,7 @@ import { APIURL_LOGIN } from '@src/configs/apiConfig/apiUrls';
 import { useToast } from '@src/hooks/useToast';
 import { useDispatch } from 'react-redux';
 import { handleLogin } from '@src/redux/reducers/authenticationReducer';
-import logo from '@src/assets/images/logo/bahmanMotors_logo.png';
+import logo from '@src/assets/images/logo/bahmanGroups_logo.png';
 import themeConfig from '@src/configs/theme/themeConfig';
 import { ILoginResultModel } from '@src/models/output/authentication/ILoginResultModel';
 import { IOutputResult } from '@src/models/output/IOutputResult';

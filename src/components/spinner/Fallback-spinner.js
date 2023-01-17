@@ -1,5 +1,5 @@
 // ** Logo
-import logo from '@src/assets/images/logo/bahmanMotors_logo.png';
+import logo from '@src/assets/images/logo/bahmanGroups_logo.png';
 
 const SpinnerComponent = () => {
   return (

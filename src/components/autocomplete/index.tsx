@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { Fragment, useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { AlertCircle } from 'react-feather';
 import PerfectScrollbar from 'react-perfect-scrollbar';

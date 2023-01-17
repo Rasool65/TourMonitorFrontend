@@ -3,9 +3,9 @@
 //Template config options
 const themeConfig = {
   app: {
-    appName: 'Bahman Motors',
-    appLogoImage: require('@src/assets/images/logo/bahmanMotors_logo.png'),
-    appLogo: require('@src/assets/images/logo/bahmanMotors_logo1.png'),
+    appName: 'Bahman Groups',
+    appLogoImage: require('@src/assets/images/logo/bahmanGroups_logo.png'),
+    appLogo: require('@src/assets/images/logo/bahmanGroups_logo1.png'),
     useRefreshToken: false,
     autoServerMessageOnError: true,
     showSystemError: false,
