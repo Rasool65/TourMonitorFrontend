@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Disc, X, Circle } from 'react-feather';
 import themeConfig from '@configs/theme/themeConfig';
 
 const VerticalMenuHeader = (props: any) => {
@@ -8,28 +7,6 @@ const VerticalMenuHeader = (props: any) => {
   useEffect(() => {
     if (!menuHover && menuCollapsed) setGroupOpen([]);
   }, [menuHover, menuCollapsed]);
-
-  const Toggler = () => {
-    if (!menuCollapsed) {
-      return (
-        <Disc
-          size={20}
-          data-tour="toggle-icon"
-          className="text-primary toggle-icon d-none d-xl-block"
-          onClick={() => setMenuCollapsed(true)}
-        />
-      );
-    } else {
-      return (
-        <Circle
-          size={20}
-          data-tour="toggle-icon"
-          className="text-primary toggle-icon d-none d-xl-block"
-          onClick={() => setMenuCollapsed(false)}
-        />
-      );
-    }
-  };
 
   return (
     <div className="navbar-header">

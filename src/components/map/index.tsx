@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import { MapConsumer, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setMap } from '@src/redux/reducers/mapReducer';
 import mapConfig from '@src/configs/mapConfig';
 import useHttpRequest from '@src/hooks/useHttpRequest';
@@ -10,6 +10,7 @@ import { IOutputResult } from '@src/models/output/IOutputResult';
 import { IVehiclesResultModel } from '@src/models/output/vehicles/IVehiclesResultModel';
 import { APIURL_GET_VEHICLES } from '@src/configs/apiConfig/apiUrls';
 import MockData from './vehicles.json';
+import { RootStateType } from '@src/redux/Store';
 
 let mapRef: L.Map;
 export const Map: FunctionComponent = (props: any) => {
@@ -17,7 +18,8 @@ export const Map: FunctionComponent = (props: any) => {
   const httpRequest = useHttpRequest();
   const [vehicles, setVehicles] = useState<IVehiclesResultModel[]>();
   const [mockData] = useState<any>(MockData);
-
+  const [map, setMap] = useState<any>();
+  const location = useSelector((state: RootStateType) => state.map);
   const GetVehiclesList = () => {
     //! نمونه کد
     //! API خواندن دیتا از طریق ای پی آی بصورت مدل سازی شده خواهد بود
@@ -33,6 +35,10 @@ export const Map: FunctionComponent = (props: any) => {
   useEffect(() => {
     GetVehiclesList();
   }, []);
+
+  useEffect(() => {
+    if (map) map.flyTo([location.lat, location.long], mapConfig.defaultZoom);
+  }, [location]);
   return (
     <>
       <div>
@@ -44,6 +50,9 @@ export const Map: FunctionComponent = (props: any) => {
           attributionControl={false}
           className="map-container"
           style={{ height: '100vh', position: 'fixed', right: 0, top: 0 }}
+          whenCreated={(map: any) => {
+            setMap(map);
+          }}
         >
           <TileLayer
             key={'base'}
@@ -61,13 +70,13 @@ export const Map: FunctionComponent = (props: any) => {
                 </Marker>
               );
             })}
-          <MapConsumer>
-            {(map) => {
+          {/* <MapConsumer>
+            {(map: any) => {
               mapRef = map;
               dispatch(setMap(map));
               return null;
             }}
-          </MapConsumer>
+          </MapConsumer> */}
         </MapContainer>
       </div>
     </>

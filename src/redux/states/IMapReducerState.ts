@@ -1,3 +1,4 @@
 export interface IMapReducerState {
-  map?: L.Map;
+  lat: number;
+  long: number;
 }

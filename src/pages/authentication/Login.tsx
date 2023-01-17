@@ -4,7 +4,6 @@ import { URL_LOGIN, URL_MAIN } from '../../configs/urls';
 import IPageProps from '../../configs/routerConfig/IPageProps';
 import { useForm, Controller } from 'react-hook-form';
 import InputPasswordToggle from '@components/input-password-toggle';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 // ** Styles
 import '@styles/react/pages/page-authentication.scss';
@@ -40,6 +39,7 @@ import logo from '@src/assets/images/logo/bahmanGroups_logo.png';
 import themeConfig from '@src/configs/theme/themeConfig';
 import { ILoginResultModel } from '@src/models/output/authentication/ILoginResultModel';
 import { IOutputResult } from '@src/models/output/IOutputResult';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const Login: FunctionComponent<IPageProps> = (props) => {
   const navigate = useNavigate();

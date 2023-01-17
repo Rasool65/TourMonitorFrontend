@@ -2,6 +2,7 @@ import { Fragment, useState, useRef } from 'react';
 import classnames from 'classnames';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import VerticalMenuHeader from './VerticalMenuHeader';
+import VehicleList from '../../vehicles';
 
 const Sidebar = (props: any) => {
   const { menuCollapsed, routerProps, menu, currentActiveItem, skin, menuData } = props;
@@ -45,9 +46,9 @@ const Sidebar = (props: any) => {
             <PerfectScrollbar
               className="main-menu-content"
               options={{ wheelPropagation: false }}
-              onScrollY={(container) => scrollMenu(container)}
+              onScrollY={(container: any) => scrollMenu(container)}
             >
-              car list
+              <VehicleList />
             </PerfectScrollbar>
           </Fragment>
         )}
