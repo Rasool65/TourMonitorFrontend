@@ -1,24 +1,19 @@
 import { ILayoutReducerState } from '../states/ILayoutReducerState';
-
-// ** Redux Imports
 import { createSlice } from '@reduxjs/toolkit';
 import themeConfig from '@src/configs/theme/themeConfig';
 
 const initialMenuCollapsed = (): boolean => {
   const item = window.localStorage.getItem('menuCollapsed');
-  //** Parse stored json or if none return initialValue
   return item ? JSON.parse(item) : themeConfig.layout.menu.isCollapsed;
 };
 
 const initialDirection = (): boolean => {
   const item = window.localStorage.getItem('direction');
-  //** Parse stored json or if none return initialValue
   return item ? JSON.parse(item) : themeConfig.layout.isRTL;
 };
 
 const initialSkin = (): string => {
   const item = window.localStorage.getItem('skin');
-  //** Parse stored json or if none return initialValue
   return item ? JSON.parse(item) : themeConfig.layout.skin;
 };
 

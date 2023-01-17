@@ -1,11 +1,6 @@
-// ** Imports createContext function
-import { createContext } from 'react'
+import { createContext } from 'react';
+import { createContextualCan } from '@casl/react';
 
-// ** Imports createContextualCan function
-import { createContextualCan } from '@casl/react'
+export const AbilityContext = createContext();
 
-// ** Create Context
-export const AbilityContext = createContext()
-
-// ** Init Can Context
-export const Can = createContextualCan(AbilityContext.Consumer)
+export const Can = createContextualCan(AbilityContext.Consumer);

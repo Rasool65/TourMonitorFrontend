@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import { ArrowUp } from 'react-feather';
 import { Navbar, Button } from 'reactstrap';
 import themeConfig from '../configs/theme/themeConfig';
-// import FooterComponent from './components/footer';
 import NavbarComponent from './components/navbar';
 import SidebarComponent from './components/menu/vertical-menu';
 import { useRTL } from '@src/hooks/useRTL';
@@ -16,7 +15,6 @@ import { useNavbarColor } from '@src/hooks/useNavbarColor';
 import '../scss/base/core/menu/menu-types/vertical-menu.scss';
 import '../scss/base/core/menu/menu-types/vertical-overlay-menu.scss';
 import { RootStateType } from '@src/redux/Store';
-import Customizer from '../components/customizer';
 import ScrollTop from '../components/scrolltop';
 import { handleContentWidth, handleMenuCollapsed, handleMenuHidden } from '@src/redux/reducers/layoutReducer';
 
@@ -147,32 +145,6 @@ const VerticalLayout = (props: any) => {
         onClick={() => setMenuVisibility(false)}
       ></div>
 
-      {themeConfig.layout.customizer === true ? (
-        <Customizer
-          skin={skin}
-          setSkin={setSkin}
-          footerType={footerType}
-          setFooterType={setFooterType}
-          navbarType={navbarType}
-          setNavbarType={setNavbarType}
-          navbarColor={navbarColor}
-          setNavbarColor={setNavbarColor}
-          isRtl={isRtl}
-          setIsRtl={setIsRtl}
-          layout={props.layout}
-          setLayout={props.setLayout}
-          setLastLayout={setLastLayout}
-          isHidden={isHidden}
-          setIsHidden={setIsHidden}
-          contentWidth={contentWidth}
-          setContentWidth={setContentWidth}
-          menuCollapsed={menuCollapsed}
-          setMenuCollapsed={setMenuCollapsed}
-          transition={props.transition}
-          setTransition={props.setTransition}
-          themeConfig={themeConfig}
-        />
-      ) : null}
       <footer
         className={classnames(`footer footer-light ${footerClasses[footerType] || 'footer-static'}`, {
           'd-none': footerType === 'hidden',

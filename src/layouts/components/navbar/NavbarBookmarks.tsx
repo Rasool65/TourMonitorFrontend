@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react';
 import * as Icon from 'react-feather';
 import { NavItem, NavLink } from 'reactstrap';
 import { useDispatch } from 'react-redux';
-import { handleSearchQuery } from '@src/redux/reducers/navbarReducer';
 import { refreshFavouriteDrivers } from '@src/redux/reducers/commandReducer';
 
 const NavbarBookmarks = (props: any) => {

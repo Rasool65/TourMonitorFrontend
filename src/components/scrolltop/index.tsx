@@ -1,8 +1,4 @@
-// ** React Imports
 import { useEffect, useState } from 'react';
-
-// ** Third Party Components
-import Proptypes from 'prop-types';
 import { FunctionComponent } from 'react';
 
 export interface IClassName {
@@ -13,10 +9,6 @@ export interface IClassName {
 }
 
 const ScrollTop: FunctionComponent<IClassName> = (props) => {
-  // ** Props
-  // const { showOffset, scrollBehaviour, children, ...rest } = props;
-
-  // ** State
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -47,13 +39,6 @@ const ScrollTop: FunctionComponent<IClassName> = (props) => {
 };
 
 export default ScrollTop;
-
-// ** PropTypes
-ScrollTop.propTypes = {
-  showOffset: Proptypes.number,
-  children: Proptypes.any.isRequired,
-  scrollBehaviour: Proptypes.oneOf(['smooth', 'instant', 'auto']),
-};
 
 ScrollTop.defaultProps = {
   scrollBehaviour: 'smooth',

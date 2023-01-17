@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createRoutineMachineLayer } from '@src/components/map/RoutingMachine';
 import { IMapReducerState } from '../states/IMapReducerState';
-import * as L from 'leaflet';
 
 export const mapSlice = createSlice({
   name: 'map',

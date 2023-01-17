@@ -6,14 +6,12 @@ import RouteType from '../configs/routerConfig/RouteType';
 import PrivateRoute from './PrivateRoute';
 import LayoutWrapper from '@src/layouts/components/layout-wrapper';
 import { useLayout } from '@src/hooks/useLayout';
-import { useRTL } from '@src/hooks/useRTL';
 import { useRouterTransition } from '@src/hooks/useRouterTransition';
 import Map from '@src/components/map';
 // import mapImage from '@src/assets/images/pages/main.jpg';
 
 const Routers: FunctionComponent = () => {
   const { layout, setLayout } = useLayout();
-  const [isRtl, setIsRtl] = useRTL();
   const { transition, setTransition } = useRouterTransition();
   return (
     <BrowserRouter>
