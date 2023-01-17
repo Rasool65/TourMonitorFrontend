@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { URL_LOGIN, URL_MAIN } from '@src/configs/urls';
 import { useTokenAuthentication } from '@src/hooks/useTokenAuthentication';
-import { useNavigate } from 'react-router-dom';
 import { IAuthenticationReducerState } from '../states/IAuthenticationReducerState';
 
 const tokenAuthentication = useTokenAuthentication();

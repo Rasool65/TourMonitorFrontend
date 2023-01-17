@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react';
 import * as Icon from 'react-feather';
 import { NavItem, NavLink } from 'reactstrap';
 import { useDispatch } from 'react-redux';
-import { refreshFavouriteDrivers } from '@src/redux/reducers/commandReducer';
 
 const NavbarBookmarks = (props: any) => {
   const { setMenuVisibility } = props;
@@ -15,12 +14,7 @@ const NavbarBookmarks = (props: any) => {
       <>
         <NavItem className="nav-item d-none d-lg-block">
           <NavLink>
-            <Icon.RefreshCcw
-              className="ficon"
-              onClick={() => {
-                dispatch(refreshFavouriteDrivers());
-              }}
-            />
+            <Icon.RefreshCcw className="ficon" />
             {/* <UncontrolledTooltip target={item.target}>{item.title}</UncontrolledTooltip> */}
           </NavLink>
         </NavItem>
